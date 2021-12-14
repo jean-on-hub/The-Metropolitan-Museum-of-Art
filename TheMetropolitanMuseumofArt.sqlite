@@ -1,0 +1,32 @@
+-- inspect data
+--  SELECT *
+-- FROM met
+-- LIMIT 10;
+
+-- number of pieces are in the American Decorative Art collection
+-- select count(*) from met where department ="American Decorative Arts";
+-- number of items containing celery
+-- select count(*)from met where category like "%celery%" ;
+
+-- find oldest pieces
+-- check date
+-- SELECT MIN(date)
+-- FROM met;
+
+-- select title, medium from met where date like "%1600%" ;
+
+-- countries wich most pieces originate from
+ 
+-- select country ,count(*) from met where country  not null group by 1 order by 2 desc LIMIT 10;
+
+-- category with most pieces
+
+-- select category, count(*) from met group by 1 having count(*) > 100  order by 2 desc;
+-- count silver and gold pieces
+
+select  case
+   WHEN medium LIKE '%gold%'   THEN 'Gold'
+   WHEN medium LIKE '%silver%' THEN 'Silver'
+   ELSE NULL
+  END AS 'Bling', count(*) from met where bling not null group by 1 order by 2 desc;
+
